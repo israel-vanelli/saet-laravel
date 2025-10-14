@@ -1,0 +1,112 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table users {
+  id integer [primary key]
+  name string
+  email string
+  password string
+  created_at datetime
+  updated_at datetime
+}
+
+
+Table brands {
+  id integer [primary key]
+  name string 
+  created_at datetime
+  updated_at datetime
+}
+
+Table colors {
+  id integer
+  name string
+  hex string
+  created_at datetime
+  updated_at datetime
+}
+
+Table customers {
+  id integer [primary key]
+  name string
+  email string
+  birthday date
+  cpf string
+  license_number string
+  license_issuing_state string
+  created_at datetime
+  updated_at datetime
+}
+
+Table vehicles {
+  id integer
+  brand_id integer
+  color_id string
+  type string
+  license_plate string
+  name string
+  year integer
+  seats integer
+  trunk_capacity decimal
+  price_per_day decimal
+  created_at datetime
+  updated_at datetime
+}
+
+Table payment_methods {
+  id integer
+  name string
+  tag string
+  created_at datetime
+  updated_at datetime
+}
+
+Table rentals {
+  id integer
+  customer_id integer
+  vehicle_id integer
+  vehicle_price_per_day decimal
+  price decimal
+  paid_at datetime
+  starts_at datetime
+  ends_at datetime
+}
+
+Table payment_method_rental {
+  payment_method_id integer
+  rental_id integer
+  amount decimal
+  created_at datetime
+  updated_at datetime
+}
+
+Table media {
+  id integer [primary key]
+  uploader_id integer
+  model_id integer
+  model_type string
+  tag string
+  disk string
+  relative_path string
+  name string
+  extension string
+  size_in_bytes unsingedBigInteger
+  mime string
+  is_public boolean
+  created_at datetime
+  updated_at datetime
+}
+
+Ref: "users"."id" < "media"."uploader_id"
+
+Ref: "brands"."id" < "vehicles"."brand_id"
+
+Ref: "vehicles"."id" < "rentals"."vehicle_id"
+
+Ref: "customers"."id" < "rentals"."customer_id"
+
+Ref: "payment_methods"."id" < "payment_method_rental"."payment_method_id"
+
+Ref: "rentals"."id" < "payment_method_rental"."rental_id"
+
+Ref: "colors"."id" < "vehicles"."color_id"

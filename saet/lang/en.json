@@ -1,0 +1,9 @@
+{
+    "pagination": {
+        "per_page": "Per Page",
+        "page": "Page",
+        "total": "Total",
+        "showing_of_results": "Showing from {{from}} to {{to}} of {{total}} results",
+        "current_page": "Current Page"
+    }
+}

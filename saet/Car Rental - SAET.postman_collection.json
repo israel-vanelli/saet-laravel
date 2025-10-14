@@ -1,0 +1,2211 @@
+{
+	"info": {
+		"_postman_id": "bc2c3e8e-6322-4b8c-a062-307fe5d79037",
+		"name": "Car Rental - SAET",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34610978"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Arthur\",\n    \"email\": \"arthur@email.com\",\n    \"password\": \"safe_password\",\n    \"password_confirmation\": \"safe_password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app-url}}/api/register",
+							"host": [
+								"{{app-url}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@utfpr.edu.br\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app-url}}/api/login",
+							"host": [
+								"{{app-url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forgot Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"arthur@email.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app-url}}/api/forgot-password",
+							"host": [
+								"{{app-url}}"
+							],
+							"path": [
+								"api",
+								"forgot-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\": \"a_valid_token\",\n    \"email\": \"email@example.com\",\n    \"password\": \"new_password\",\n    \"password_confirmation\": \"new_password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app-url}}/api/reset-password",
+							"host": [
+								"{{app-url}}"
+							],
+							"path": [
+								"api",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{app-url}}/api/logout",
+							"host": [
+								"{{app-url}}"
+							],
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Email Verification",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{app-url}}/api/email/verification-notification",
+							"host": [
+								"{{app-url}}"
+							],
+							"path": [
+								"api",
+								"email",
+								"verification-notification"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|P3JjuX3T3Uhu0wAS0attubNiMUWIK0vM12fCbIFe91c2be40",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"current_password\": \"safe_password\",\n    \"password\": \"new_password\",\n    \"password_confirmation\": \"new_password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app-url}}/api/settings/password",
+							"host": [
+								"{{app-url}}"
+							],
+							"path": [
+								"api",
+								"settings",
+								"password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|P3JjuX3T3Uhu0wAS0attubNiMUWIK0vM12fCbIFe91c2be40",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Luke Skywalker\",\n    \"email\": \"luke.skywalker@rebel-alliance.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app-url}}/api/settings/profile",
+							"host": [
+								"{{app-url}}"
+							],
+							"path": [
+								"api",
+								"settings",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Destroy Profile",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{app-url}}/api/settings/profile",
+							"host": [
+								"{{app-url}}"
+							],
+							"path": [
+								"api",
+								"settings",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Current User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{app-url}}/api/user",
+							"host": [
+								"{{app-url}}"
+							],
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Brands",
+			"item": [
+				{
+					"name": "Index Brands",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{app-url}}/api/brands",
+							"host": [
+								"{{app-url}}"
+							],
+							"path": [
+								"api",
+								"brands"
+							],
+							"query": [
+								{
+									"key": "per_page",
+									"value": "20",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Index Brands",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{app-url}}/api/brands",
+									"host": [
+										"{{app-url}}"
+									],
+									"path": [
+										"api",
+										"brands"
+									],
+									"query": [
+										{
+											"key": "per_page",
+											"value": "20",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.25.4"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.29"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 19 Sep 2025 17:42:31 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "utfpr_veiculos_session=eyJpdiI6InZTYldldEE0aUhBNmRjZDFIajFna3c9PSIsInZhbHVlIjoiR0xmUlgvSzBpRitMR2JQSXZkSUxkeThYUmJnWDFqb3FLSHRqemIvanNoMWsrcWR2OFd2SklDcDNOVnRpekRSbXpxTVdvOGhLd0lIYzJYWFBOeVR0d2J0M284cXg5dmhSelZ1THo0ZXNnZkJ1WEtQRkxaNDh5ZXJaYk4yRDVNaCsiLCJtYWMiOiI4ZjNkMmYyNzRlZTY3NjM5Yzg5ZmIyZDlhZGQ5YzE2Yjk3MDQxNTRmOWMxODE2ZTA5YmZkYWY0YzM4NjhhMGI1IiwidGFnIjoiIn0%3D; expires=Fri, 26 Sep 2025 17:42:31 GMT; Max-Age=604800; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Toyota\",\n            \"created_at\": \"2025-09-09T04:45:50.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:50.000000Z\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Honda\",\n            \"created_at\": \"2025-09-09T04:45:50.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:50.000000Z\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Ford\",\n            \"created_at\": \"2025-09-09T04:45:50.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:50.000000Z\"\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Chevrolet\",\n            \"created_at\": \"2025-09-09T04:45:50.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:50.000000Z\"\n        },\n        {\n            \"id\": 5,\n            \"name\": \"Nissan\",\n            \"created_at\": \"2025-09-09T04:45:50.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:50.000000Z\"\n        },\n        {\n            \"id\": 6,\n            \"name\": \"Volkswagen\",\n            \"created_at\": \"2025-09-09T04:45:50.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:50.000000Z\"\n        },\n        {\n            \"id\": 7,\n            \"name\": \"Hyundai\",\n            \"created_at\": \"2025-09-09T04:45:50.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:50.000000Z\"\n        },\n        {\n            \"id\": 8,\n            \"name\": \"Kia\",\n            \"created_at\": \"2025-09-09T04:45:50.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:50.000000Z\"\n        },\n        {\n            \"id\": 9,\n            \"name\": \"Mazda\",\n            \"created_at\": \"2025-09-09T04:45:50.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:50.000000Z\"\n        },\n        {\n            \"id\": 10,\n            \"name\": \"Subaru\",\n            \"created_at\": \"2025-09-09T04:45:50.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:50.000000Z\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Colors",
+			"item": [
+				{
+					"name": "Index Colors",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{app-url}}/api/colors",
+							"host": [
+								"{{app-url}}"
+							],
+							"path": [
+								"api",
+								"colors"
+							],
+							"query": [
+								{
+									"key": "per_page",
+									"value": "20",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Index Colors",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{app-url}}/api/colors",
+									"host": [
+										"{{app-url}}"
+									],
+									"path": [
+										"api",
+										"colors"
+									],
+									"query": [
+										{
+											"key": "per_page",
+											"value": "20",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.25.4"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.29"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 19 Sep 2025 17:42:35 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "utfpr_veiculos_session=eyJpdiI6IjVvam0xSUtXSHN6QmU0RkdLNUF5UVE9PSIsInZhbHVlIjoiNUQvb01QQ2JJYytjZVYwQXlIdVVaQU14M0NVUXJ6NW5uTm85WVYvS0pCYjk4bUhBWmpPVGxNUlZzZDM3TkhURWttdmt3dDNrbit0NHQxcktQbDlSUGVFckdVYjNTajdnZkhZWm1NR0oxVnNRY0d0OURRQlM3OVpSbWltcXZnRXoiLCJtYWMiOiIyOTZlMmM3MzZmNDFhNzdmZmIyODhkYzYwZWU3MWU5MDYxNTQ0NDZlMDdiYjRiNzI3MjdmYzYyYWEyODE3YzlkIiwidGFnIjoiIn0%3D; expires=Fri, 26 Sep 2025 17:42:35 GMT; Max-Age=604800; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Vermelho\",\n            \"hex\": \"#FF0000\",\n            \"created_at\": \"2025-09-09T04:45:50.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:50.000000Z\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Azul\",\n            \"hex\": \"#0000FF\",\n            \"created_at\": \"2025-09-09T04:45:50.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:50.000000Z\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Verde\",\n            \"hex\": \"#00FF00\",\n            \"created_at\": \"2025-09-09T04:45:50.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:50.000000Z\"\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Preto\",\n            \"hex\": \"#000000\",\n            \"created_at\": \"2025-09-09T04:45:50.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:50.000000Z\"\n        },\n        {\n            \"id\": 5,\n            \"name\": \"Branco\",\n            \"hex\": \"#FFFFFF\",\n            \"created_at\": \"2025-09-09T04:45:50.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:50.000000Z\"\n        },\n        {\n            \"id\": 6,\n            \"name\": \"Prata\",\n            \"hex\": \"#C0C0C0\",\n            \"created_at\": \"2025-09-09T04:45:50.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:50.000000Z\"\n        },\n        {\n            \"id\": 7,\n            \"name\": \"Cinza\",\n            \"hex\": \"#808080\",\n            \"created_at\": \"2025-09-09T04:45:50.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:50.000000Z\"\n        },\n        {\n            \"id\": 8,\n            \"name\": \"Amarelo\",\n            \"hex\": \"#FFFF00\",\n            \"created_at\": \"2025-09-09T04:45:50.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:50.000000Z\"\n        },\n        {\n            \"id\": 9,\n            \"name\": \"Laranja\",\n            \"hex\": \"#FFA500\",\n            \"created_at\": \"2025-09-09T04:45:50.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:50.000000Z\"\n        },\n        {\n            \"id\": 10,\n            \"name\": \"Marrom\",\n            \"hex\": \"#A52A2A\",\n            \"created_at\": \"2025-09-09T04:45:50.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:50.000000Z\"\n        },\n        {\n            \"id\": 11,\n            \"name\": \"Roxo\",\n            \"hex\": \"#800080\",\n            \"created_at\": \"2025-09-09T04:45:50.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:50.000000Z\"\n        },\n        {\n            \"id\": 12,\n            \"name\": \"Rosa\",\n            \"hex\": \"#FFC0CB\",\n            \"created_at\": \"2025-09-09T04:45:50.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:50.000000Z\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Customers",
+			"item": [
+				{
+					"name": "Index Customers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{app-url}}/api/customers",
+							"host": [
+								"{{app-url}}"
+							],
+							"path": [
+								"api",
+								"customers"
+							],
+							"query": [
+								{
+									"key": "per_page",
+									"value": "20",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Index Customers",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{app-url}}/api/customers",
+									"host": [
+										"{{app-url}}"
+									],
+									"path": [
+										"api",
+										"customers"
+									],
+									"query": [
+										{
+											"key": "per_page",
+											"value": "20",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.25.4"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.29"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 19 Sep 2025 17:44:37 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "utfpr_veiculos_session=eyJpdiI6IlpqcG0rTTViall6RDBobklFMzdDb3c9PSIsInZhbHVlIjoiQVVtK3BHcGdkYnJ2OFQ4aW01Nk5GWXR0d1NmZGY1Y0p1aEY3WGdGS0xWRnFGSW11VExNSnlZcm5IalQvcXJXeSthUnVMY0lrOUtpWHN0NTQvdWk1OVZiUy85YlByMlZxR1h6eG1nWFo2SFViSGd5WnNwSytZQzdFeVpnMlFVVzYiLCJtYWMiOiJjOWY4MGUzOWJhMTQwMmM3YjBjNzM2ZmMzYTQ1MTNmN2I2NDA4ZjVhZTc5YjgyN2UwOWJhOThmZjY3NjQwMjFmIiwidGFnIjoiIn0%3D; expires=Fri, 26 Sep 2025 17:44:37 GMT; Max-Age=604800; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Andréa Beltrão\",\n            \"email\": \"andréa.beltrão.4727@example.com\",\n            \"birthday\": \"1991-09-06T03:00:00.000000Z\",\n            \"cpf\": \"314.420.115-50\",\n            \"license_number\": \"TG240821\",\n            \"license_issuing_state\": \"SC\",\n            \"deleted_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Regiane Cortês\",\n            \"email\": \"regiane.cortês.8089@example.com\",\n            \"birthday\": \"1976-12-23T03:00:00.000000Z\",\n            \"cpf\": \"472.495.446-16\",\n            \"license_number\": \"WV552058\",\n            \"license_issuing_state\": \"MA\",\n            \"deleted_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Antônio Galindo\",\n            \"email\": \"antônio.galindo.9958@example.com\",\n            \"birthday\": \"1978-07-14T03:00:00.000000Z\",\n            \"cpf\": \"556.479.560-57\",\n            \"license_number\": \"WV269249\",\n            \"license_issuing_state\": \"PI\",\n            \"deleted_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Sergio Arruda\",\n            \"email\": \"sergio.arruda.9119@example.com\",\n            \"birthday\": \"1970-04-09T03:00:00.000000Z\",\n            \"cpf\": \"265.772.733-69\",\n            \"license_number\": \"MA076482\",\n            \"license_issuing_state\": \"MS\",\n            \"deleted_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 5,\n            \"name\": \"Joana Carmona\",\n            \"email\": \"joana.carmona.7073@example.com\",\n            \"birthday\": \"1973-12-16T03:00:00.000000Z\",\n            \"cpf\": \"046.740.697-28\",\n            \"license_number\": \"LE882636\",\n            \"license_issuing_state\": \"MG\",\n            \"deleted_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 6,\n            \"name\": \"Stephanie Vasques\",\n            \"email\": \"stephanie.vasques.7203@example.com\",\n            \"birthday\": \"1978-11-05T03:00:00.000000Z\",\n            \"cpf\": \"287.828.424-20\",\n            \"license_number\": \"EP802200\",\n            \"license_issuing_state\": \"MA\",\n            \"deleted_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 7,\n            \"name\": \"Luiz Bonilha\",\n            \"email\": \"luiz.bonilha.9373@example.com\",\n            \"birthday\": \"1972-04-25T03:00:00.000000Z\",\n            \"cpf\": \"084.846.685-45\",\n            \"license_number\": \"NR748946\",\n            \"license_issuing_state\": \"RN\",\n            \"deleted_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 8,\n            \"name\": \"Daiane Quintana\",\n            \"email\": \"daiane.quintana.1193@example.com\",\n            \"birthday\": \"1988-04-28T03:00:00.000000Z\",\n            \"cpf\": \"531.799.524-37\",\n            \"license_number\": \"PF928399\",\n            \"license_issuing_state\": \"CE\",\n            \"deleted_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 9,\n            \"name\": \"Alícia Salgado\",\n            \"email\": \"alícia.salgado.4631@example.com\",\n            \"birthday\": \"1972-03-12T03:00:00.000000Z\",\n            \"cpf\": \"912.827.085-75\",\n            \"license_number\": \"CG760309\",\n            \"license_issuing_state\": \"MT\",\n            \"deleted_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 10,\n            \"name\": \"Leandro Souza\",\n            \"email\": \"leandro.souza.4331@example.com\",\n            \"birthday\": \"1994-04-02T03:00:00.000000Z\",\n            \"cpf\": \"765.822.042-34\",\n            \"license_number\": \"DX880646\",\n            \"license_issuing_state\": \"CE\",\n            \"deleted_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 11,\n            \"name\": \"David Salas\",\n            \"email\": \"david.salas.2931@example.com\",\n            \"birthday\": \"2000-06-11T03:00:00.000000Z\",\n            \"cpf\": \"937.570.321-76\",\n            \"license_number\": \"MP374948\",\n            \"license_issuing_state\": \"AL\",\n            \"deleted_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 12,\n            \"name\": \"Teobaldo Marin\",\n            \"email\": \"teobaldo.marin.2333@example.com\",\n            \"birthday\": \"1974-09-04T03:00:00.000000Z\",\n            \"cpf\": \"344.203.902-26\",\n            \"license_number\": \"AA080091\",\n            \"license_issuing_state\": \"AP\",\n            \"deleted_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 13,\n            \"name\": \"Cláudio Queirós\",\n            \"email\": \"cláudio.queirós.1091@example.com\",\n            \"birthday\": \"1992-11-22T02:00:00.000000Z\",\n            \"cpf\": \"429.449.495-92\",\n            \"license_number\": \"WS489316\",\n            \"license_issuing_state\": \"SE\",\n            \"deleted_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 14,\n            \"name\": \"Emanuelly Delgado\",\n            \"email\": \"emanuelly.delgado.1632@example.com\",\n            \"birthday\": \"2006-08-01T03:00:00.000000Z\",\n            \"cpf\": \"212.195.930-22\",\n            \"license_number\": \"ME902350\",\n            \"license_issuing_state\": \"PB\",\n            \"deleted_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 15,\n            \"name\": \"Pablo Rezende\",\n            \"email\": \"pablo.rezende.4466@example.com\",\n            \"birthday\": \"1992-02-17T03:00:00.000000Z\",\n            \"cpf\": \"231.742.246-99\",\n            \"license_number\": \"OA758899\",\n            \"license_issuing_state\": \"TO\",\n            \"deleted_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        }\n    ],\n    \"links\": {\n        \"first\": \"http://car-rental.test/api/customers?page=1\",\n        \"last\": \"http://car-rental.test/api/customers?page=4\",\n        \"prev\": null,\n        \"next\": \"http://car-rental.test/api/customers?page=2\"\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"last_page\": 4,\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Anterior\",\n                \"page\": null,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://car-rental.test/api/customers?page=1\",\n                \"label\": \"1\",\n                \"page\": 1,\n                \"active\": true\n            },\n            {\n                \"url\": \"http://car-rental.test/api/customers?page=2\",\n                \"label\": \"2\",\n                \"page\": 2,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://car-rental.test/api/customers?page=3\",\n                \"label\": \"3\",\n                \"page\": 3,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://car-rental.test/api/customers?page=4\",\n                \"label\": \"4\",\n                \"page\": 4,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://car-rental.test/api/customers?page=2\",\n                \"label\": \"Próximo &raquo;\",\n                \"page\": 2,\n                \"active\": false\n            }\n        ],\n        \"path\": \"http://car-rental.test/api/customers\",\n        \"per_page\": 15,\n        \"to\": 15,\n        \"total\": 50\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Show Customer",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{app-url}}/api/customers/:customer_id",
+							"host": [
+								"{{app-url}}"
+							],
+							"path": [
+								"api",
+								"customers",
+								":customer_id"
+							],
+							"variable": [
+								{
+									"key": "customer_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Show Customer",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{app-url}}/api/customers/:customer_id",
+									"host": [
+										"{{app-url}}"
+									],
+									"path": [
+										"api",
+										"customers",
+										":customer_id"
+									],
+									"variable": [
+										{
+											"key": "customer_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.25.4"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.29"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 19 Sep 2025 17:44:42 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "utfpr_veiculos_session=eyJpdiI6IlRHbmZsd0FKcThDb3JWU295TFFrNUE9PSIsInZhbHVlIjoiRk54cG1qb1VWOWd0ZWxvNFRvbzBBN0M4ajFTNUpBT0RRRXBTU0preHhxRWVhR3l3NVk5L21BZlg1dUFBMWduSUJsK29GLy9kTjBJcE41RVR6ckQ1NFJLZ3IzSHZ6RWdrQTRIOUZ5NUkwU3N2ek9YUlF5V2lHTFVXZWdua2JGNHIiLCJtYWMiOiJlYjU3ODBjOGI2NTE4Zjk4MTQyNzhiNjVmOGZiZDZlMmYxNzhkZmU1Y2ViMmRkMDk4ZWIyNDE2ODBjNjgzZWRlIiwidGFnIjoiIn0%3D; expires=Fri, 26 Sep 2025 17:44:42 GMT; Max-Age=604800; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Andréa Beltrão\",\n        \"email\": \"andréa.beltrão.4727@example.com\",\n        \"birthday\": \"1991-09-06T03:00:00.000000Z\",\n        \"cpf\": \"314.420.115-50\",\n        \"license_number\": \"TG240821\",\n        \"license_issuing_state\": \"SC\",\n        \"deleted_at\": null,\n        \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n        \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Store Customer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Joao\",\n    \"email\": \"joao@utfpr.edu.br\",\n    \"cpf\": \"000.000.000-00\",\n    \"birthday\": \"1997-01-01\",\n    \"license_number\": \"12345\",\n    \"license_issuing_state\": \"PR\",\n    \"address\": {\n        \"state\": \"PR\",\n        \"city\": \"Toledo\",\n        \"district\": \"Vila Becker\",\n        \"street\": \"R. Cristo Rei\",\n        \"number\": \"19\",\n        \"zip_code\": \"85902-490\",\n        \"complement\": \"Bloco E. Sala 306\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app-url}}/api/customers",
+							"host": [
+								"{{app-url}}"
+							],
+							"path": [
+								"api",
+								"customers"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Store Customer",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Joao\",\n    \"email\": \"joao@utfpr.edu.br\",\n    \"cpf\": \"000.000.000-00\",\n    \"birthday\": \"1997-01-01\",\n    \"license_number\": \"12345\",\n    \"license_issuing_state\": \"PR\",\n    \"address\": {\n        \"state\": \"PR\",\n        \"city\": \"Toledo\",\n        \"district\": \"Vila Becker\",\n        \"street\": \"R. Cristo Rei\",\n        \"number\": \"19\",\n        \"zip_code\": \"85902-490\",\n        \"complement\": \"Bloco E. Sala 306\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{app-url}}/api/customers",
+									"host": [
+										"{{app-url}}"
+									],
+									"path": [
+										"api",
+										"customers"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.25.4"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.29"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 19 Sep 2025 17:44:47 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "utfpr_veiculos_session=eyJpdiI6IjYyQ3cwVXlDditmZlFuSTBhQVU4Ync9PSIsInZhbHVlIjoiaE9KVTBBQ1l3NERNZW1KOFNkVnhCVHpHNytWVFY2S2pjRGw2TDZ1c1FVUjRmMnZYNmdkZE4vbGJPSWxXckY0ZHVrU2JvYm1JdThZeXRFR2JoTm4reWJ0cVdxOWxsUVA0Zy8yeFVaZXl4VjVleFpCNTZMVGVpZ2tFSDNNM3JEOWUiLCJtYWMiOiJhMjk0ZDU1YzVhZjg5OWZkZDM2NWJmYzAwMjNhNDI4MDJjOTk1MTQyMTZjY2I1ZjJkNWRhZDZmYTVkZTYwYjQwIiwidGFnIjoiIn0%3D; expires=Fri, 26 Sep 2025 17:44:47 GMT; Max-Age=604800; path=/; httponly; samesite=lax"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"data\": {\n        \"name\": \"Joao\",\n        \"email\": \"joao@utfpr.edu.br\",\n        \"cpf\": \"000.000.000-00\",\n        \"birthday\": \"1997-01-01T02:00:00.000000Z\",\n        \"license_number\": \"12345\",\n        \"license_issuing_state\": \"PR\",\n        \"updated_at\": \"2025-09-19T17:44:47.000000Z\",\n        \"created_at\": \"2025-09-19T17:44:47.000000Z\",\n        \"id\": 51\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Customer",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Joao\",\n    \"email\": \"joao@utfpr.edu.br\",\n    \"cpf\": \"000.000.000-00\",\n    \"birthday\": \"1997-01-01\",\n    \"license_number\": \"12345\",\n    \"license_issuing_state\": \"PR\",\n    \"address\": {\n        \"state\": \"PR\",\n        \"city\": \"Toledo\",\n        \"district\": \"Vila Becker\",\n        \"street\": \"R. Cristo Rei\",\n        \"number\": \"19\",\n        \"zip_code\": \"85902-490\",\n        \"complement\": \"Bloco E. Sala 306\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app-url}}/api/customers/:customer_id",
+							"host": [
+								"{{app-url}}"
+							],
+							"path": [
+								"api",
+								"customers",
+								":customer_id"
+							],
+							"variable": [
+								{
+									"key": "customer_id",
+									"value": "51"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Customer",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Joao\",\n    \"email\": \"joao@utfpr.edu.br\",\n    \"cpf\": \"000.000.000-00\",\n    \"birthday\": \"1997-01-01\",\n    \"license_number\": \"12345\",\n    \"license_issuing_state\": \"PR\",\n    \"address\": {\n        \"state\": \"PR\",\n        \"city\": \"Toledo\",\n        \"district\": \"Vila Becker\",\n        \"street\": \"R. Cristo Rei\",\n        \"number\": \"19\",\n        \"zip_code\": \"85902-490\",\n        \"complement\": \"Bloco E. Sala 306\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{app-url}}/api/customers/:customer_id",
+									"host": [
+										"{{app-url}}"
+									],
+									"path": [
+										"api",
+										"customers",
+										":customer_id"
+									],
+									"variable": [
+										{
+											"key": "customer_id",
+											"value": "51"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.25.4"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.29"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 19 Sep 2025 17:45:15 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "utfpr_veiculos_session=eyJpdiI6IjVNUi9rUHFhbkVMQyt0bEZsOHozWlE9PSIsInZhbHVlIjoic3oxS3VoNWdQM2M1T0ZJTzJrbjVBN0JDQTJEZnRHSDdoWHlaaHFpeEFTRDdUVHpMcW16WHVxQ2k1djdJcUlPWXR3bnpybENWMmVGQWFDZWlTOTdJM2kxaU1OMURlTFY1U2dSeEd3VzBnWkZtL1BiTTdhRy8yQUk1b29HZUFycjIiLCJtYWMiOiI5M2MyMDQzM2MzMzY4MmMwMmIxYTBlMzc1Y2VhNjFmODBkMjZkNjdhZGIxYTFiY2NiNzcwYTcxMzUyNjA4ZjMyIiwidGFnIjoiIn0%3D; expires=Fri, 26 Sep 2025 17:45:15 GMT; Max-Age=604800; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"id\": 51,\n    \"name\": \"Joao\",\n    \"email\": \"joao@utfpr.edu.br\",\n    \"birthday\": \"1997-01-01T02:00:00.000000Z\",\n    \"cpf\": \"000.000.000-00\",\n    \"license_number\": \"12345\",\n    \"license_issuing_state\": \"PR\",\n    \"deleted_at\": null,\n    \"created_at\": \"2025-09-19T17:44:47.000000Z\",\n    \"updated_at\": \"2025-09-19T17:44:47.000000Z\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Payment Methods",
+			"item": [
+				{
+					"name": "Index Payment Methods",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{app-url}}/api/payment-methods",
+							"host": [
+								"{{app-url}}"
+							],
+							"path": [
+								"api",
+								"payment-methods"
+							],
+							"query": [
+								{
+									"key": "per_page",
+									"value": "20",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Index Payment Methods",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{app-url}}/api/payment-methods",
+									"host": [
+										"{{app-url}}"
+									],
+									"path": [
+										"api",
+										"payment-methods"
+									],
+									"query": [
+										{
+											"key": "per_page",
+											"value": "20",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.25.4"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.29"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 19 Sep 2025 17:42:38 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "utfpr_veiculos_session=eyJpdiI6InJySjkxSTIwNjlxRUZYYTlETW16d2c9PSIsInZhbHVlIjoiZXJqU0NKVHgzTFZUSnRMZUhQV2JXMDl0K1JXbmF0b2N1c1JZZWt1dnk5bWJDZTk4bFljNzNMb3BYNHhXVzVyWXkyREJ5TXlYU2FHYnBHWlZtaTlvQWVWSldIZTFvOWdJS0NpZTBwTVVvU0dBK3NDeGppQnFQNFc2Ly83bk14N0IiLCJtYWMiOiJmOTY1MGMzYmUzMmQwYWU0MWQ0YzFmMmU0MmU3YjhkM2NlZTJiZTUzNDk2MDZlZDY3MmNlMTkxOWNjMzgxMzZkIiwidGFnIjoiIn0%3D; expires=Fri, 26 Sep 2025 17:42:38 GMT; Max-Age=604800; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Pix\",\n            \"tag\": \"pix\",\n            \"created_at\": \"2025-09-09T04:45:50.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:50.000000Z\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Cartão de Crédito\",\n            \"tag\": \"credit_card\",\n            \"created_at\": \"2025-09-09T04:45:50.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:50.000000Z\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Cartão de Débito\",\n            \"tag\": \"debit_card\",\n            \"created_at\": \"2025-09-09T04:45:50.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:50.000000Z\"\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Dinheiro\",\n            \"tag\": \"cash\",\n            \"created_at\": \"2025-09-09T04:45:50.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:50.000000Z\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Rentals",
+			"item": [
+				{
+					"name": "Index Rentals",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{app-url}}/api/rentals",
+							"host": [
+								"{{app-url}}"
+							],
+							"path": [
+								"api",
+								"rentals"
+							],
+							"query": [
+								{
+									"key": "per_page",
+									"value": "20",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Index Rentals",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{app-url}}/api/rentals",
+									"host": [
+										"{{app-url}}"
+									],
+									"path": [
+										"api",
+										"rentals"
+									],
+									"query": [
+										{
+											"key": "per_page",
+											"value": "20",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.25.4"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.29"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 19 Sep 2025 17:44:27 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "utfpr_veiculos_session=eyJpdiI6IkZsOE5HRVRvRUZnZTJDbS9tZDZ4YXc9PSIsInZhbHVlIjoiL1l0UE1NRzdXNzdXSktwTjNtbUMrMTZTNENaRlpXZy9rRkdCUnhMaXpuTU90TmNpdjIrMG8yU3ZINCtLT0FzcHByTWtDZzhIdHp5cHhqb09YN1RzMVpVVllyQnQwcXlHR3pDcndWWlNaak56WU15WVA4RzhucTFCaTNvNHZIenciLCJtYWMiOiIwMWE5MjhiMWQ4MzJlYjllYjkyYjdjN2JiZmQxN2NkOTk1NmQ1M2M2ZTQxMTE5NGRkOWZiYmM4ZDg3NjM4ZTQ2IiwidGFnIjoiIn0%3D; expires=Fri, 26 Sep 2025 17:44:27 GMT; Max-Age=604800; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"customer_id\": 1,\n            \"vehicle_id\": 1,\n            \"vehicle_price_per_day\": \"100.00\",\n            \"price\": \"200.00\",\n            \"days\": 21,\n            \"start_date\": \"2025-09-08T03:00:00.000000Z\",\n            \"end_date\": \"2025-09-10T03:00:00.000000Z\",\n            \"paid_at\": \"2025-09-07T03:00:00.000000Z\",\n            \"canceled_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-19T17:44:19.000000Z\"\n        },\n        {\n            \"id\": 2,\n            \"customer_id\": 2,\n            \"vehicle_id\": 45,\n            \"vehicle_price_per_day\": \"691.45\",\n            \"price\": \"11063.20\",\n            \"days\": 16,\n            \"start_date\": \"2026-03-08T03:00:00.000000Z\",\n            \"end_date\": \"2026-03-23T03:00:00.000000Z\",\n            \"paid_at\": \"2026-03-10T05:10:14.000000Z\",\n            \"canceled_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 3,\n            \"customer_id\": 31,\n            \"vehicle_id\": 142,\n            \"vehicle_price_per_day\": \"119.45\",\n            \"price\": \"955.60\",\n            \"days\": 8,\n            \"start_date\": \"2025-09-30T03:00:00.000000Z\",\n            \"end_date\": \"2025-10-07T03:00:00.000000Z\",\n            \"paid_at\": \"2025-10-01T02:43:32.000000Z\",\n            \"canceled_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 4,\n            \"customer_id\": 41,\n            \"vehicle_id\": 51,\n            \"vehicle_price_per_day\": \"559.70\",\n            \"price\": \"7835.80\",\n            \"days\": 14,\n            \"start_date\": \"2024-09-18T03:00:00.000000Z\",\n            \"end_date\": \"2024-10-01T03:00:00.000000Z\",\n            \"paid_at\": \"2024-09-20T00:21:22.000000Z\",\n            \"canceled_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 5,\n            \"customer_id\": 12,\n            \"vehicle_id\": 165,\n            \"vehicle_price_per_day\": \"475.72\",\n            \"price\": \"11417.28\",\n            \"days\": 24,\n            \"start_date\": \"2023-01-17T03:00:00.000000Z\",\n            \"end_date\": \"2023-02-09T03:00:00.000000Z\",\n            \"paid_at\": \"2023-01-18T02:23:35.000000Z\",\n            \"canceled_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 6,\n            \"customer_id\": 10,\n            \"vehicle_id\": 59,\n            \"vehicle_price_per_day\": \"400.57\",\n            \"price\": \"7610.83\",\n            \"days\": 19,\n            \"start_date\": \"2025-11-17T03:00:00.000000Z\",\n            \"end_date\": \"2025-12-05T03:00:00.000000Z\",\n            \"paid_at\": \"2025-11-17T18:25:52.000000Z\",\n            \"canceled_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 7,\n            \"customer_id\": 45,\n            \"vehicle_id\": 28,\n            \"vehicle_price_per_day\": \"556.24\",\n            \"price\": \"7787.36\",\n            \"days\": 14,\n            \"start_date\": \"2022-09-17T03:00:00.000000Z\",\n            \"end_date\": \"2022-09-30T03:00:00.000000Z\",\n            \"paid_at\": \"2022-09-17T18:17:26.000000Z\",\n            \"canceled_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 8,\n            \"customer_id\": 28,\n            \"vehicle_id\": 145,\n            \"vehicle_price_per_day\": \"223.02\",\n            \"price\": \"5575.50\",\n            \"days\": 25,\n            \"start_date\": \"2025-04-18T03:00:00.000000Z\",\n            \"end_date\": \"2025-05-12T03:00:00.000000Z\",\n            \"paid_at\": \"2025-04-19T10:47:05.000000Z\",\n            \"canceled_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 9,\n            \"customer_id\": 25,\n            \"vehicle_id\": 111,\n            \"vehicle_price_per_day\": \"140.03\",\n            \"price\": \"840.18\",\n            \"days\": 6,\n            \"start_date\": \"2023-07-26T03:00:00.000000Z\",\n            \"end_date\": \"2023-07-31T03:00:00.000000Z\",\n            \"paid_at\": \"2023-07-28T00:23:53.000000Z\",\n            \"canceled_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 10,\n            \"customer_id\": 25,\n            \"vehicle_id\": 166,\n            \"vehicle_price_per_day\": \"267.71\",\n            \"price\": \"6692.75\",\n            \"days\": 25,\n            \"start_date\": \"2024-04-08T03:00:00.000000Z\",\n            \"end_date\": \"2024-05-02T03:00:00.000000Z\",\n            \"paid_at\": \"2024-04-09T02:44:21.000000Z\",\n            \"canceled_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 11,\n            \"customer_id\": 13,\n            \"vehicle_id\": 24,\n            \"vehicle_price_per_day\": \"443.84\",\n            \"price\": \"9320.64\",\n            \"days\": 21,\n            \"start_date\": \"2024-03-01T03:00:00.000000Z\",\n            \"end_date\": \"2024-03-21T03:00:00.000000Z\",\n            \"paid_at\": \"2024-03-03T20:11:05.000000Z\",\n            \"canceled_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 12,\n            \"customer_id\": 4,\n            \"vehicle_id\": 62,\n            \"vehicle_price_per_day\": \"375.14\",\n            \"price\": \"1125.42\",\n            \"days\": 3,\n            \"start_date\": \"2025-05-26T03:00:00.000000Z\",\n            \"end_date\": \"2025-05-28T03:00:00.000000Z\",\n            \"paid_at\": \"2025-05-26T08:21:21.000000Z\",\n            \"canceled_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 13,\n            \"customer_id\": 29,\n            \"vehicle_id\": 126,\n            \"vehicle_price_per_day\": \"424.70\",\n            \"price\": \"8918.70\",\n            \"days\": 21,\n            \"start_date\": \"2024-11-25T03:00:00.000000Z\",\n            \"end_date\": \"2024-12-15T03:00:00.000000Z\",\n            \"paid_at\": \"2024-11-27T06:09:58.000000Z\",\n            \"canceled_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 14,\n            \"customer_id\": 25,\n            \"vehicle_id\": 97,\n            \"vehicle_price_per_day\": \"699.16\",\n            \"price\": \"1398.32\",\n            \"days\": 2,\n            \"start_date\": \"2026-09-01T03:00:00.000000Z\",\n            \"end_date\": \"2026-09-02T03:00:00.000000Z\",\n            \"paid_at\": \"2026-09-04T02:24:57.000000Z\",\n            \"canceled_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 15,\n            \"customer_id\": 21,\n            \"vehicle_id\": 42,\n            \"vehicle_price_per_day\": \"893.62\",\n            \"price\": \"16978.78\",\n            \"days\": 19,\n            \"start_date\": \"2025-04-26T03:00:00.000000Z\",\n            \"end_date\": \"2025-05-14T03:00:00.000000Z\",\n            \"paid_at\": \"2025-04-26T21:39:36.000000Z\",\n            \"canceled_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        }\n    ],\n    \"links\": {\n        \"first\": \"http://car-rental.test/api/rentals?page=1\",\n        \"last\": \"http://car-rental.test/api/rentals?page=21\",\n        \"prev\": null,\n        \"next\": \"http://car-rental.test/api/rentals?page=2\"\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"last_page\": 21,\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Anterior\",\n                \"page\": null,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://car-rental.test/api/rentals?page=1\",\n                \"label\": \"1\",\n                \"page\": 1,\n                \"active\": true\n            },\n            {\n                \"url\": \"http://car-rental.test/api/rentals?page=2\",\n                \"label\": \"2\",\n                \"page\": 2,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://car-rental.test/api/rentals?page=3\",\n                \"label\": \"3\",\n                \"page\": 3,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://car-rental.test/api/rentals?page=4\",\n                \"label\": \"4\",\n                \"page\": 4,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://car-rental.test/api/rentals?page=5\",\n                \"label\": \"5\",\n                \"page\": 5,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://car-rental.test/api/rentals?page=6\",\n                \"label\": \"6\",\n                \"page\": 6,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://car-rental.test/api/rentals?page=7\",\n                \"label\": \"7\",\n                \"page\": 7,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://car-rental.test/api/rentals?page=8\",\n                \"label\": \"8\",\n                \"page\": 8,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://car-rental.test/api/rentals?page=9\",\n                \"label\": \"9\",\n                \"page\": 9,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://car-rental.test/api/rentals?page=10\",\n                \"label\": \"10\",\n                \"page\": 10,\n                \"active\": false\n            },\n            {\n                \"url\": null,\n                \"label\": \"...\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://car-rental.test/api/rentals?page=20\",\n                \"label\": \"20\",\n                \"page\": 20,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://car-rental.test/api/rentals?page=21\",\n                \"label\": \"21\",\n                \"page\": 21,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://car-rental.test/api/rentals?page=2\",\n                \"label\": \"Próximo &raquo;\",\n                \"page\": 2,\n                \"active\": false\n            }\n        ],\n        \"path\": \"http://car-rental.test/api/rentals\",\n        \"per_page\": 15,\n        \"to\": 15,\n        \"total\": 301\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Show Rental",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{app-url}}/api/rentals/:rental_id",
+							"host": [
+								"{{app-url}}"
+							],
+							"path": [
+								"api",
+								"rentals",
+								":rental_id"
+							],
+							"variable": [
+								{
+									"key": "rental_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Show Rental",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{app-url}}/api/rentals/:rental_id",
+									"host": [
+										"{{app-url}}"
+									],
+									"path": [
+										"api",
+										"rentals",
+										":rental_id"
+									],
+									"variable": [
+										{
+											"key": "rental_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.25.4"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.29"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 19 Sep 2025 17:44:23 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "utfpr_veiculos_session=eyJpdiI6IkhrdmVFZ1hpUlQ3QzN6ZFp1dHlEUXc9PSIsInZhbHVlIjoid0hRTGV0NVlFOHd5YTNwRkQ2cUxZMlNEanFLK2s2b0NHRnUzVjBqaGRHNms0QkFna3lkNG5KaFpRZmtZWnZsTFphV1ppQnhDcGtjb3VqakpCbDR2RDFBRzdKcllkY3IvOURLUTZBRW04bXZTaGVubFYwR0dHd0hVL0xaTnlHNTkiLCJtYWMiOiI3YWEwOGQ0ZmJmOTEzZmNkNjgwYzY0ZDM3ODNlZGNlYzk3Njk1MzYzODliMTEwMDk5MDUzZjAyNGYyNDc5OGViIiwidGFnIjoiIn0%3D; expires=Fri, 26 Sep 2025 17:44:23 GMT; Max-Age=604800; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"customer_id\": 1,\n        \"vehicle_id\": 1,\n        \"vehicle_price_per_day\": \"100.00\",\n        \"price\": \"200.00\",\n        \"days\": 21,\n        \"start_date\": \"2025-09-08T03:00:00.000000Z\",\n        \"end_date\": \"2025-09-10T03:00:00.000000Z\",\n        \"paid_at\": \"2025-09-07T03:00:00.000000Z\",\n        \"canceled_at\": null,\n        \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n        \"updated_at\": \"2025-09-19T17:44:19.000000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Store Rental",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customer_id\": 1,\n    \"vehicle_id\": 1,\n    \"vehicle_price_per_day\": 100,\n    \"price\": 200,\n    \"paid_at\": \"2025-09-07\",\n    \"start_date\": \"2025-09-08\",\n    \"end_date\": \"2025-09-10\",\n    \"payment_methods\": [\n        {\n            \"id\": 1,\n            \"amount\": 150\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app-url}}/api/rentals",
+							"host": [
+								"{{app-url}}"
+							],
+							"path": [
+								"api",
+								"rentals"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Store Rental",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"customer_id\": 1,\n    \"vehicle_id\": 1,\n    \"vehicle_price_per_day\": 100,\n    \"price\": 200,\n    \"paid_at\": \"2025-09-07\",\n    \"start_date\": \"2025-09-08\",\n    \"end_date\": \"2025-09-10\",\n    \"payment_methods\": [\n        {\n            \"id\": 1,\n            \"amount\": 150\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{app-url}}/api/rentals",
+									"host": [
+										"{{app-url}}"
+									],
+									"path": [
+										"api",
+										"rentals"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.25.4"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.29"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 19 Sep 2025 17:44:12 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "utfpr_veiculos_session=eyJpdiI6IkpwK3FrZmVJMFRYSDZWaXdNblc3Qmc9PSIsInZhbHVlIjoiaU83akt6NmdkcUZjNkkrYUw1OVRnWEZST0ZUczRnSWtrWi9XdUE1MkNFb3ZuWGhIR1VIa0MrVWh2enRNNTVpM00rT1grMk4ybmE2czJxOVZ5eDA4ZjlqZ1JSaEVhMWN5RVpVWVdwOENiT3p2cVd3Q1Blb0FlQ0Y1dFBOUmZNZ3ciLCJtYWMiOiI4MGM3MDAwMmVmOGY1MTBiOGM4NzY0MWY1YWVjN2NkNmIzMjc3ZjVkN2E0N2Y2MTE4ZjkwNzQxNDAxZmQwMzlhIiwidGFnIjoiIn0%3D; expires=Fri, 26 Sep 2025 17:44:12 GMT; Max-Age=604800; path=/; httponly; samesite=lax"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"data\": {\n        \"customer_id\": 1,\n        \"vehicle_id\": 1,\n        \"vehicle_price_per_day\": \"100.00\",\n        \"price\": \"200.00\",\n        \"paid_at\": \"2025-09-07T03:00:00.000000Z\",\n        \"start_date\": \"2025-09-08T03:00:00.000000Z\",\n        \"end_date\": \"2025-09-10T03:00:00.000000Z\",\n        \"updated_at\": \"2025-09-19T17:44:12.000000Z\",\n        \"created_at\": \"2025-09-19T17:44:12.000000Z\",\n        \"id\": 301\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Rental",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customer_id\": 1,\n    \"vehicle_id\": 1,\n    \"vehicle_price_per_day\": 100,\n    \"price\": 200,\n    \"paid_at\": \"2025-09-07\",\n    \"start_date\": \"2025-09-08\",\n    \"end_date\": \"2025-09-10\",\n    \"payment_methods\": [\n        {\n            \"id\": 1,\n            \"amount\": 150\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app-url}}/api/rentals/:rental_id",
+							"host": [
+								"{{app-url}}"
+							],
+							"path": [
+								"api",
+								"rentals",
+								":rental_id"
+							],
+							"variable": [
+								{
+									"key": "rental_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Rental",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"customer_id\": 1,\n    \"vehicle_id\": 1,\n    \"vehicle_price_per_day\": 100,\n    \"price\": 200,\n    \"paid_at\": \"2025-09-07\",\n    \"start_date\": \"2025-09-08\",\n    \"end_date\": \"2025-09-10\",\n    \"payment_methods\": [\n        {\n            \"id\": 1,\n            \"amount\": 150\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{app-url}}/api/rentals/:rental_id",
+									"host": [
+										"{{app-url}}"
+									],
+									"path": [
+										"api",
+										"rentals",
+										":rental_id"
+									],
+									"variable": [
+										{
+											"key": "rental_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.25.4"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.29"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 19 Sep 2025 17:44:19 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "utfpr_veiculos_session=eyJpdiI6Ijc1UitpY3dqUHYvRWhHRkl3S0tUSlE9PSIsInZhbHVlIjoiMXFXRS94MWprSXhxb2d2Z3hnYTlOY2VZVXJ0SG5rM2ZlZlhrbUpCODFXaFR5QmoycGQrOHNtRWcvYmNobTd5YTI2VEJsdzhGZXY5ODNUWEI1akdCdFQwSzQ1ci9iQmpNNSs1MWVpU3ZqUVNkL1BHUXNuTWZwYW5GbWl2M2pBbGUiLCJtYWMiOiIwMDc3NDRmMTBlN2ExYTI5ZjdlYWFkYjlmMGY3NTdkNzVjZWQ0N2QwODEzMTYxMzNiZjA4YzhkNTRjNjNjNmZlIiwidGFnIjoiIn0%3D; expires=Fri, 26 Sep 2025 17:44:19 GMT; Max-Age=604800; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"customer_id\": 1,\n        \"vehicle_id\": 1,\n        \"vehicle_price_per_day\": \"100.00\",\n        \"price\": \"200.00\",\n        \"days\": 21,\n        \"start_date\": \"2025-09-08T03:00:00.000000Z\",\n        \"end_date\": \"2025-09-10T03:00:00.000000Z\",\n        \"paid_at\": \"2025-09-07T03:00:00.000000Z\",\n        \"canceled_at\": null,\n        \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n        \"updated_at\": \"2025-09-19T17:44:19.000000Z\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Vehicles",
+			"item": [
+				{
+					"name": "Index Vehicles",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{app-url}}/api/vehicles",
+							"host": [
+								"{{app-url}}"
+							],
+							"path": [
+								"api",
+								"vehicles"
+							],
+							"query": [
+								{
+									"key": "per_page",
+									"value": "20",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Index Vehicles",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{app-url}}/api/vehicles",
+									"host": [
+										"{{app-url}}"
+									],
+									"path": [
+										"api",
+										"vehicles"
+									],
+									"query": [
+										{
+											"key": "per_page",
+											"value": "20",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.25.4"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.29"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 19 Sep 2025 17:45:26 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "utfpr_veiculos_session=eyJpdiI6ImNEc21GZFJhaFN2dUZPWmpaYTQ0Mnc9PSIsInZhbHVlIjoidCtUTW9rUDlnZG1Wbmg3KzRQSG1QYi92dERCQXp3OWdBVlRKT0ZQZ0t3dDRmUzZ6eFQydHhkMHNJSUhaK1FKZ0oxRGwvcHhVVmNPL1VLb3VMODFjVUxnNXlBTDl6SnRWZ0tOTlFUd0xWblhoSHdySkxyMzVEK1FoY1k4QnZSRzkiLCJtYWMiOiI5ZTg1NGRhNjAzMTU2ZTA0ZjZlNzg1MzAxZmVkZTMxYjI4ODkwNWFlZTAyYTgzYzJlMDhhODI1ZTIwZDNiZWJkIiwidGFnIjoiIn0%3D; expires=Fri, 26 Sep 2025 17:45:26 GMT; Max-Age=604800; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"brand_id\": 9,\n            \"color_id\": 7,\n            \"type\": \"hatch\",\n            \"license_plate\": \"IXK-4179\",\n            \"name\": \"Model S\",\n            \"year\": 2000,\n            \"seats\": 7,\n            \"trunk_capacity\": \"209.31\",\n            \"price_per_day\": \"676.64\",\n            \"deleted_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 2,\n            \"brand_id\": 7,\n            \"color_id\": 4,\n            \"type\": \"sedan\",\n            \"license_plate\": \"NQE-1330\",\n            \"name\": \"Altima\",\n            \"year\": 2003,\n            \"seats\": 7,\n            \"trunk_capacity\": \"319.61\",\n            \"price_per_day\": \"942.98\",\n            \"deleted_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 3,\n            \"brand_id\": 4,\n            \"color_id\": 8,\n            \"type\": \"van\",\n            \"license_plate\": \"OTW-4135\",\n            \"name\": \"Mustang\",\n            \"year\": 2000,\n            \"seats\": 6,\n            \"trunk_capacity\": \"473.38\",\n            \"price_per_day\": \"619.69\",\n            \"deleted_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 4,\n            \"brand_id\": 6,\n            \"color_id\": 8,\n            \"type\": \"truck\",\n            \"license_plate\": \"JJE-5092\",\n            \"name\": \"Model S\",\n            \"year\": 2001,\n            \"seats\": 5,\n            \"trunk_capacity\": \"340.09\",\n            \"price_per_day\": \"955.11\",\n            \"deleted_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 5,\n            \"brand_id\": 4,\n            \"color_id\": 7,\n            \"type\": \"pickup\",\n            \"license_plate\": \"AXM-4505\",\n            \"name\": \"Camry\",\n            \"year\": 2018,\n            \"seats\": 7,\n            \"trunk_capacity\": \"206.61\",\n            \"price_per_day\": \"345.48\",\n            \"deleted_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 6,\n            \"brand_id\": 9,\n            \"color_id\": 11,\n            \"type\": \"hatch\",\n            \"license_plate\": \"UGP-7609\",\n            \"name\": \"Model 3\",\n            \"year\": 2015,\n            \"seats\": 7,\n            \"trunk_capacity\": \"390.30\",\n            \"price_per_day\": \"374.71\",\n            \"deleted_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 7,\n            \"brand_id\": 8,\n            \"color_id\": 12,\n            \"type\": \"van\",\n            \"license_plate\": \"IZP-9048\",\n            \"name\": \"Corolla\",\n            \"year\": 2019,\n            \"seats\": 6,\n            \"trunk_capacity\": \"396.31\",\n            \"price_per_day\": \"876.18\",\n            \"deleted_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 8,\n            \"brand_id\": 3,\n            \"color_id\": 3,\n            \"type\": \"hatch\",\n            \"license_plate\": \"SGB-9071\",\n            \"name\": \"Model S\",\n            \"year\": 2010,\n            \"seats\": 8,\n            \"trunk_capacity\": \"477.90\",\n            \"price_per_day\": \"661.11\",\n            \"deleted_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 9,\n            \"brand_id\": 1,\n            \"color_id\": 12,\n            \"type\": \"pickup\",\n            \"license_plate\": \"OFE-0622\",\n            \"name\": \"Civic\",\n            \"year\": 2010,\n            \"seats\": 8,\n            \"trunk_capacity\": \"412.62\",\n            \"price_per_day\": \"766.04\",\n            \"deleted_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 10,\n            \"brand_id\": 2,\n            \"color_id\": 4,\n            \"type\": \"pickup\",\n            \"license_plate\": \"UPJ-7452\",\n            \"name\": \"Accord\",\n            \"year\": 2008,\n            \"seats\": 5,\n            \"trunk_capacity\": \"246.81\",\n            \"price_per_day\": \"628.33\",\n            \"deleted_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 11,\n            \"brand_id\": 3,\n            \"color_id\": 2,\n            \"type\": \"sedan\",\n            \"license_plate\": \"PHH-4030\",\n            \"name\": \"Model Y\",\n            \"year\": 2018,\n            \"seats\": 9,\n            \"trunk_capacity\": \"333.45\",\n            \"price_per_day\": \"737.35\",\n            \"deleted_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 12,\n            \"brand_id\": 10,\n            \"color_id\": 3,\n            \"type\": \"van\",\n            \"license_plate\": \"AEF-1142\",\n            \"name\": \"Corolla\",\n            \"year\": 2018,\n            \"seats\": 5,\n            \"trunk_capacity\": \"435.79\",\n            \"price_per_day\": \"465.87\",\n            \"deleted_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 13,\n            \"brand_id\": 2,\n            \"color_id\": 10,\n            \"type\": \"truck\",\n            \"license_plate\": \"TCX-3000\",\n            \"name\": \"Accord\",\n            \"year\": 2024,\n            \"seats\": 6,\n            \"trunk_capacity\": \"405.91\",\n            \"price_per_day\": \"782.76\",\n            \"deleted_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 14,\n            \"brand_id\": 4,\n            \"color_id\": 7,\n            \"type\": \"truck\",\n            \"license_plate\": \"PCM-4285\",\n            \"name\": \"Accord\",\n            \"year\": 2008,\n            \"seats\": 5,\n            \"trunk_capacity\": \"497.49\",\n            \"price_per_day\": \"456.45\",\n            \"deleted_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        },\n        {\n            \"id\": 15,\n            \"brand_id\": 7,\n            \"color_id\": 5,\n            \"type\": \"sedan\",\n            \"license_plate\": \"BDA-7132\",\n            \"name\": \"Mustang\",\n            \"year\": 2007,\n            \"seats\": 6,\n            \"trunk_capacity\": \"330.29\",\n            \"price_per_day\": \"250.05\",\n            \"deleted_at\": null,\n            \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n            \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n        }\n    ],\n    \"links\": {\n        \"first\": \"http://car-rental.test/api/vehicles?page=1\",\n        \"last\": \"http://car-rental.test/api/vehicles?page=14\",\n        \"prev\": null,\n        \"next\": \"http://car-rental.test/api/vehicles?page=2\"\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"last_page\": 14,\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Anterior\",\n                \"page\": null,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://car-rental.test/api/vehicles?page=1\",\n                \"label\": \"1\",\n                \"page\": 1,\n                \"active\": true\n            },\n            {\n                \"url\": \"http://car-rental.test/api/vehicles?page=2\",\n                \"label\": \"2\",\n                \"page\": 2,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://car-rental.test/api/vehicles?page=3\",\n                \"label\": \"3\",\n                \"page\": 3,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://car-rental.test/api/vehicles?page=4\",\n                \"label\": \"4\",\n                \"page\": 4,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://car-rental.test/api/vehicles?page=5\",\n                \"label\": \"5\",\n                \"page\": 5,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://car-rental.test/api/vehicles?page=6\",\n                \"label\": \"6\",\n                \"page\": 6,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://car-rental.test/api/vehicles?page=7\",\n                \"label\": \"7\",\n                \"page\": 7,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://car-rental.test/api/vehicles?page=8\",\n                \"label\": \"8\",\n                \"page\": 8,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://car-rental.test/api/vehicles?page=9\",\n                \"label\": \"9\",\n                \"page\": 9,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://car-rental.test/api/vehicles?page=10\",\n                \"label\": \"10\",\n                \"page\": 10,\n                \"active\": false\n            },\n            {\n                \"url\": null,\n                \"label\": \"...\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://car-rental.test/api/vehicles?page=13\",\n                \"label\": \"13\",\n                \"page\": 13,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://car-rental.test/api/vehicles?page=14\",\n                \"label\": \"14\",\n                \"page\": 14,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://car-rental.test/api/vehicles?page=2\",\n                \"label\": \"Próximo &raquo;\",\n                \"page\": 2,\n                \"active\": false\n            }\n        ],\n        \"path\": \"http://car-rental.test/api/vehicles\",\n        \"per_page\": 15,\n        \"to\": 15,\n        \"total\": 200\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Show Vehicle",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{app-url}}/api/vehicles/:vehicle_id",
+							"host": [
+								"{{app-url}}"
+							],
+							"path": [
+								"api",
+								"vehicles",
+								":vehicle_id"
+							],
+							"variable": [
+								{
+									"key": "vehicle_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Show Vehicle",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{app-url}}/api/vehicles/:vehicle_id",
+									"host": [
+										"{{app-url}}"
+									],
+									"path": [
+										"api",
+										"vehicles",
+										":vehicle_id"
+									],
+									"variable": [
+										{
+											"key": "vehicle_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.25.4"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.29"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 19 Sep 2025 17:45:33 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "utfpr_veiculos_session=eyJpdiI6IkJOUUE5VVd1dFNQWVdnRmQ2VVdIM2c9PSIsInZhbHVlIjoiQ0xJak11bDZkMjh3dTRmd0tyS2IxZXFIZFFKYlp0bnF0K1RqU2xNcVJuQ0FxckVFTml4aGhlUUt1UFpZWjZxaEdnbkFaZWNvWlV4dFM1Vmh3dVY2N284blA0bkpzRi9xVXVZTHllVkRwWW8yOXV3RVFWWkNIMGFIeG85aUFPU0MiLCJtYWMiOiIxMzI4OGI1MGU4YTI0MWQzMTFiYWE1ODIwMjBlNmM4ZmMyZDAzMzE3MjM0ZTIyYzg3YWUxNDE4OWVkODMyOTI0IiwidGFnIjoiIn0%3D; expires=Fri, 26 Sep 2025 17:45:33 GMT; Max-Age=604800; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"brand_id\": 9,\n        \"color_id\": 7,\n        \"type\": \"hatch\",\n        \"license_plate\": \"IXK-4179\",\n        \"name\": \"Model S\",\n        \"year\": 2000,\n        \"seats\": 7,\n        \"trunk_capacity\": \"209.31\",\n        \"price_per_day\": \"676.64\",\n        \"deleted_at\": null,\n        \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n        \"updated_at\": \"2025-09-09T04:45:51.000000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Store Vehicle",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"brand_id\": 1,\n    \"color_id\": 1,\n    \"type\": \"sedan\",\n    \"license_plate\": \"12345-2342\",\n    \"name\": \"Etios\",\n    \"year\": 2024,\n    \"seats\": 5,\n    \"trunk_capacity\": 50,\n    \"price_per_day\": 34.6\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app-url}}/api/vehicles",
+							"host": [
+								"{{app-url}}"
+							],
+							"path": [
+								"api",
+								"vehicles"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Store Vehicle",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"brand_id\": 1,\n    \"color_id\": 1,\n    \"type\": \"sedan\",\n    \"license_plate\": \"12345-2342\",\n    \"name\": \"Colora\",\n    \"year\": 2025,\n    \"seats\": 6,\n    \"trunk_capacity\": 68,\n    \"price_per_day\": 35.6\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{app-url}}/api/vehicles",
+									"host": [
+										"{{app-url}}"
+									],
+									"path": [
+										"api",
+										"vehicles"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.25.4"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.29"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 19 Sep 2025 17:45:39 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "utfpr_veiculos_session=eyJpdiI6IkNVeFNHVzRBdWpCZ2tyZ3plRDRib3c9PSIsInZhbHVlIjoiQk1BUjVlVWlzUG9JTmdMYjVtMmJ6UzZZem5hd3VzM3lJY1cybkMrUmJYa2Y4T1hha3Y1S01PeXFoWGk3NHJCNHN5WkdCTFpzUnJGVTlvdTdDSU9JQ0g1T3QybzZXNjd2ckh4NzFuQklBYmhVRlRlWnF2T01sRndvRWoxd2VYTnIiLCJtYWMiOiIyNDBhZWRjMmE3ODdkZjI5ZDc5ZDUyYWExOTU5OThiMzEzMDc3OTZhODkwZTI3NGQ2YjVmNTNhZTk0NmFmNDJjIiwidGFnIjoiIn0%3D; expires=Fri, 26 Sep 2025 17:45:39 GMT; Max-Age=604800; path=/; httponly; samesite=lax"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"data\": {\n        \"brand_id\": 1,\n        \"color_id\": 1,\n        \"type\": \"sedan\",\n        \"license_plate\": \"12345-2342\",\n        \"name\": \"Colora\",\n        \"year\": 2025,\n        \"seats\": 6,\n        \"trunk_capacity\": \"68.00\",\n        \"price_per_day\": \"35.60\",\n        \"updated_at\": \"2025-09-19T17:45:39.000000Z\",\n        \"created_at\": \"2025-09-19T17:45:39.000000Z\",\n        \"id\": 201\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Vehicle",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"brand_id\": 1,\n    \"color_id\": 1,\n    \"type\": \"sedan\",\n    \"license_plate\": \"12345-2342\",\n    \"name\": \"Etios\",\n    \"year\": 2024,\n    \"seats\": 5,\n    \"trunk_capacity\": 50,\n    \"price_per_day\": 35.6\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app-url}}/api/vehicles/:vehicle_id",
+							"host": [
+								"{{app-url}}"
+							],
+							"path": [
+								"api",
+								"vehicles",
+								":vehicle_id"
+							],
+							"variable": [
+								{
+									"key": "vehicle_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Vehicle",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"brand_id\": 1,\n    \"color_id\": 1,\n    \"type\": \"sedan\",\n    \"license_plate\": \"12345-2342\",\n    \"name\": \"Etios\",\n    \"year\": 2024,\n    \"seats\": 5,\n    \"trunk_capacity\": 50,\n    \"price_per_day\": 35.6\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{app-url}}/api/vehicles/:vehicle_id",
+									"host": [
+										"{{app-url}}"
+									],
+									"path": [
+										"api",
+										"vehicles",
+										":vehicle_id"
+									],
+									"variable": [
+										{
+											"key": "vehicle_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.25.4"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.29"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 19 Sep 2025 17:46:00 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "utfpr_veiculos_session=eyJpdiI6ImNHV2hPMnlpSnkwTUcvTGkzSW1CNUE9PSIsInZhbHVlIjoiN0lhY3k1RTJ2aXlOVFhUSUMyOHQxNUxPVzR0dkhqOGs1Y2p0SUEyZzBtaXhFdnJBSWl1MUpTMHpzdWJyY2FnRGtwbGVoSU04M2pUOWx6ODZWRkFnc0xWMk1EaDJjMWR3SDFUYVRsNkFDUmo5d095SjN2Rlc5ay9rc1Z0VHRUd0QiLCJtYWMiOiI3OTY0ZTFhYTY3MzkyZjFjM2NkOTA5ZGVmZDI4NWIwNDg1YWY4OTlkZjVhMjBiMjk4NTdmYWMzMmFlZjYzY2ZhIiwidGFnIjoiIn0%3D; expires=Fri, 26 Sep 2025 17:46:00 GMT; Max-Age=604800; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"brand_id\": 1,\n        \"color_id\": 1,\n        \"type\": \"sedan\",\n        \"license_plate\": \"12345-2342\",\n        \"name\": \"Etios\",\n        \"year\": 2024,\n        \"seats\": 5,\n        \"trunk_capacity\": \"50.00\",\n        \"price_per_day\": \"35.60\",\n        \"deleted_at\": null,\n        \"created_at\": \"2025-09-09T04:45:51.000000Z\",\n        \"updated_at\": \"2025-09-19T17:46:00.000000Z\"\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
